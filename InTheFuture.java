@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class InTheFuture {
 
-	private static int minNum(int a, int k, int p) {
+	static int minNum(int a, int k, int p) {
 		if (k == a) {
 			return -1;
 		}

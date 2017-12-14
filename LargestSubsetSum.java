@@ -16,7 +16,7 @@ public class LargestSubsetSum {
 		return sum;
 		
 	}
-	private static long[] maxSubsetNum(int[] k) {
+	static long[] maxSubsetNum(int[] k) {
 		long[] result = new long[k.length];
 		for (int i = 0; i < k.length; ++i) {
 			System.out.println("----- lcm " + k[i] + "-------");
@@ -36,8 +36,6 @@ public class LargestSubsetSum {
 		for (int i = 0; i < num; ++i) {
 			System.out.println(k[i] + " sum is " + result[i]);
 		}
-		
-
 	}
 
 }

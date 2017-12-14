@@ -9,7 +9,7 @@ public class TwoCircles {
 		Disjoint_Outside,
 		Disjoint_Inside		
 	};
-
+	
 	private static double distance(int x1, int y1, int x2, int y2) {
 		return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 	}
@@ -44,18 +44,10 @@ public class TwoCircles {
 
 	}
 	
-	public static void main(String[] args) {
-		int num = 6;
-		String[] infos = new String[num];
-		int i = 0;
-		infos[i++] = "0 10 8 0 10 3";
-		infos[i++] = "10 0 8 0 10 3";
-		infos[i++] = "0 10 8 0 20 2";
-		infos[i++] = "0 10 8 0 100 3";
-		infos[i++] = "0 10 8 0 9 3";
-		infos[i++] = "0 10 8 0 5 8";
-
-		for (String info: infos) {
+	static String[] circles(String[] infos) {
+		String result[] = new String[infos.length];
+		for (int i = 0; i < infos.length; ++i) {
+			String info = infos[i];
 			String[] input = info.split(" ");
 			assert(input.length == 6);
 			int j = 0;
@@ -67,8 +59,26 @@ public class TwoCircles {
 			int r2 = Integer.valueOf(input[j++]);
 			
 			CircleRelation relation = circleRelation(x1, y1, r1, x2, y2, r2);
-			System.out.println(relation);
+			result[i] = relation.toString();
+		}
+		return result;
+	}
+	
 
+	public static void main(String[] args) {
+		int num = 6;
+		String[] infos = new String[num];
+		int i = 0;
+		infos[i++] = "0 10 8 0 10 3";
+		infos[i++] = "10 0 8 0 10 3";
+		infos[i++] = "0 10 8 0 20 2";
+		infos[i++] = "0 10 8 0 100 3";
+		infos[i++] = "0 10 8 0 9 3";
+		infos[i++] = "0 10 8 0 5 8";
+
+		String[] result = circles(infos);
+		for (String string : result) {
+			System.out.println(string);	
 		}
 	}
 

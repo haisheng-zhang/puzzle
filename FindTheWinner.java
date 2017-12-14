@@ -4,10 +4,14 @@ import java.util.Random;
 
 public class FindTheWinner {
 
-	private static int findWinner(int[] Andrea, int[] Maria, String oddEven) {
+	static String winner(int[] andrea, int[] maria, String s) {
+		return diffn(andrea, maria, s) > 0 ? "Andrea" : "Maria";	
+	}
+
+	private static int diffn(int[] Andrea, int[] Maria, String s) {
 		int result = 0;
 		int start = 0;
-		if (oddEven.equalsIgnoreCase("odd")) {
+		if (s.equalsIgnoreCase("odd")) {
 			start = 1;
 		}
 		for (; start < Andrea.length; start += 2) {
@@ -37,12 +41,8 @@ public class FindTheWinner {
 		}
 
 		String oddEven = "even";
-		int diff = findWinner(Andrea, Maria, oddEven);
-		
-		System.out.println("Andrea - Maria:" + diff);
-		System.out.println("so " + (diff>0 ? "Andrea" : "Maria") + " wins");
-		
+		String winner = winner(Andrea, Maria, oddEven);
+		System.out.println("so " + winner + " wins");		
 		
 	}
-
 }

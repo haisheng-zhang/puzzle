@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class BuyingShowTicket {
 
-	private static int howLong(int[] tickets, int position) {
+	static long waitingTime(int[] tickets, int p) {
 		int seconds = 0;
-		int ticketPosition = tickets[position];
+		int ticketPosition = tickets[p];
 		for (int i = 0; i < tickets.length; ++i) {
 			int ticket = tickets[i];
-			if (i <= position) {
+			if (i <= p) {
 				if (ticket <= ticketPosition) {
 					seconds += ticket;
 				} else {
@@ -39,7 +39,7 @@ public class BuyingShowTicket {
 			System.out.println(i);
 		}
 		
-		int result = howLong(tickets, ticket);
+		long result = waitingTime(tickets, ticket);
 		System.out.println("result for " + ticket + ":" + result);
 	}
 
